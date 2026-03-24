@@ -4,11 +4,21 @@
   box-sizing: border-box;
 }
 
-html,body{
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100vh;
+/* 楷体字体栈 - 跨平台兼容 */
+body {
+  font-family: 
+    /* macOS/iOS 楷体 */
+    "华文楷书", "STKaiti",
+    /* Windows 楷体 */
+    "楷体", "KaiTi",
+    /* Linux 楷体 */
+    "AR PL UKai CN", "AR PL UKai HK", "AR PL UKai TW",
+    /* 通用回退 */
+    "Microsoft YaHei", serif;
+  
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 400;
 }
 
 .nav-bar {
@@ -2183,14 +2193,14 @@ html,body{
 
 /* 阅读器头部 */
 .reader-header {
-  padding: 1.2rem 1.8rem;
+  padding: 0.8rem 1.6rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(0, 0, 0, 0.2);
   flex-shrink: 0;
 }
 
 .reader-header h2 {
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   font-weight: 500;
   color: white;
   margin: 0;
@@ -2198,12 +2208,23 @@ html,body{
 
 /* 阅读器内容区域 - 可滚动 */
 .reader-content {
+  font-family: 
+    /* macOS/iOS 最优阅读字体 */
+    -apple-system, BlinkMacSystemFont,
+    /* Windows 最优阅读字体 */
+    "Segoe UI",
+    /* Android/Linux */
+    Roboto,
+    /* 中文优化 */
+    "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei",
+    /* 备用 */
+    "Helvetica Neue", Arial, sans-serif;
   flex: 1;
   overflow-y: auto;
-  padding: 2rem;
+  padding: 2.5rem;
   color: #f0f0f0;
   line-height: 1.6;
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 /* 简单滚动条样式 */

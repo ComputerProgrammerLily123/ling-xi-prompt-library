@@ -4,11 +4,23 @@
     box-sizing: border-box;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100vh;
+
+
+/* 楷体字体栈 - 跨平台兼容 */
+body {
+  font-family: 
+    /* macOS/iOS 楷体 */
+    "华文楷书", "STKaiti",
+    /* Windows 楷体 */
+    "楷体", "KaiTi",
+    /* Linux 楷体 */
+    "AR PL UKai CN", "AR PL UKai HK", "AR PL UKai TW",
+    /* 通用回退 */
+    "Microsoft YaHei", serif;
+  
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 400;
 }
 
 .nav-bar {
@@ -2310,19 +2322,31 @@ html, body {
 
 
 .notification {
+  font-family: 
+    /* macOS/iOS 最优阅读字体 */
+    -apple-system, BlinkMacSystemFont,
+    /* Windows 最优阅读字体 */
+    "Segoe UI",
+    /* Android/Linux */
+    Roboto,
+    /* 中文优化 */
+    "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei",
+    /* 备用 */
+    "Helvetica Neue", Arial, sans-serif;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   isolation: isolate;
   position: relative;
-  width: 16rem;
+  width: 18rem;
   height: 12rem;
   background: #29292c;
   border-radius: 1rem;
   overflow: hidden;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   --gradient: linear-gradient(to bottom, #2eadff, #3d83ff, #7e61ff);
   --color: #32a6ff
+  
 }
 .notification:before {
   position: absolute;
@@ -2358,7 +2382,7 @@ html, body {
 }
 .notibody {
   color: #99999d;
-  padding: 0 1.25rem;
+  padding: 0.1rem 1.5rem;
   transition: transform 300ms ease;
   z-index: 5;
 }
@@ -2403,5 +2427,28 @@ html, body {
     gap: 20px;
     background: rgba(255, 255, 255, 0);
     padding: 20px;
-    margin: 100px auto;
+    margin: 40px auto;
+}
+
+.divider-glow {
+  margin: 2rem 0;
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #6c5ce7, #a8a4ff, #6c5ce7, transparent);
+  box-shadow: 0 0 10px rgba(108, 92, 231, 0.5);
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 4px solid;
+  border-image: linear-gradient(135deg, #667eea, #764ba2);
+  border-image-slice: 1;
+  color: #fff;
+  background: linear-gradient(135deg, #fff, #c0b9ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
