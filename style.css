@@ -150,14 +150,14 @@ body {
   }
 }
 .card .card_title__container .card_title {
-  font-size: 3rem;
+  font-size: 2.4rem;
   color: var(--white);
 }
 .card .card_title__container .card_paragraph {
   margin-top: 0.25rem;
   width: 65%;
 
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: var(--paragraph);
 }
 .card .line {
@@ -195,7 +195,7 @@ body {
   fill: var(--black);
 }
 .card .card__list .card__list_item .list_text {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   color: var(--white);
 }
 .card .button {
@@ -215,6 +215,24 @@ body {
   border: 0;
   border-radius: 9999px;
   box-shadow: inset 0 -2px 25px -4px var(--white);
+  transition: transform 200ms ease, box-shadow 200ms ease, filter 200ms ease;
+}
+
+.card .button:hover {
+  transform: scale(1.015);
+  box-shadow:
+    0 10px 22px rgba(45, 173, 255, 0.24),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -2px 25px -4px var(--white);
+  filter: brightness(1.04);
+}
+
+.card .button:active {
+  transform: scale(1.005);
+  box-shadow:
+    0 4px 10px rgba(45, 173, 255, 0.18),
+    inset 0 -2px 25px -4px var(--white);
 }
 
 
@@ -2427,11 +2445,11 @@ body {
     gap: 20px;
     background: rgba(255, 255, 255, 0);
     padding: 20px;
-    margin: 40px auto;
+    margin: 10px auto;
 }
 
 .divider-glow {
-  margin: 2rem 0;
+  margin: 1.25rem 0;
   border: 0;
   height: 1px;
   background: linear-gradient(90deg, transparent, #6c5ce7, #a8a4ff, #6c5ce7, transparent);
