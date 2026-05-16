@@ -24,21 +24,84 @@
             <h2>格式处理类</h2>
         </div>
         <div class="reader-content">
-           <ul>
-              <li>格式转换（文本转表格、表格转文本、Word转PDF相关描述、markdown格式转换）：<br>请将以下【某种格式】转换成【另一种格式】，保留【必需的内容】，保持字体、缩进一致，同时提醒可能遇到的格式错乱问题及解决方法。</li>
-              <hr class="divider-gradient">
-              <li>文本排版（段落调整、字体设置序号排版、对齐方式）：<br>    请将【原文本】按逻辑/内容重新分段，每段不超过5行，并加上小标题 / 将关键术语加粗，书名人名用斜体 / 请将以下文本居中对齐，并保留原有换行。</li>
-              <hr class="divider-gradient">
-              <li>文件整理（文件名批量修改、文件分类建议）：<br>    我有一堆杂乱的文件，请给出分类建议，例如按扩展名、修改日期等。列出至少两种分类策略并对比优劣。</li>
-              <hr class="divider-gradient">
-              <li>模板套用（简历模板、报告模板、表格模板的内容填充与排版）：<br>示例：我现在要写一份周报给老板看，老板很看重数据。请你扮演一个有 10 年经验的职场助理，帮我用以下内容填充周报模板，要求排版整齐、重点突出、不少于 500 字。模板结构：本周工作亮点、数据表现、问题与改进、下周计划。（简历、报告、表格可根据需求更改结构）</li>
-           </ul>
+            <div class="prompt-builder prompt-builder--accordion" data-template="请将以下{sourceFormat}转换成{targetFormat}：{content}。请保留{keep}，保持{styleRule}一致，同时提醒可能遇到的格式错乱问题及解决方法。">
+                <button class="prompt-builder__trigger" type="button" aria-expanded="false">
+                    <span class="prompt-builder__title">格式转换</span>
+                    <span class="prompt-builder__arrow">展开</span>
+                </button>
+                <div class="prompt-builder__body">
+                <div class="prompt-builder__desc">适用于文本转表格、表格转文本、Markdown格式转换。</div>
+                <div class="prompt-builder__fields">
+                    <label>原始格式<input data-key="sourceFormat" type="text" placeholder="例如：纯文本"></label>
+                    <label>目标格式<input data-key="targetFormat" type="text" placeholder="例如：Markdown表格"></label>
+                    <label>保留内容<input data-key="keep" type="text" placeholder="例如：标题、日期、金额"></label>
+                    <label>样式要求<input data-key="styleRule" type="text" placeholder="例如：字体、缩进、换行"></label>
+                    <label class="prompt-builder__wide">原始内容<textarea data-key="content" rows="4" placeholder="粘贴需要转换的内容"></textarea></label>
+                </div>
+                <div class="prompt-builder__output" aria-live="polite"></div>
+                <button class="copy-button" type="button">一键复制</button>
+                </div>
+            </div>
+            <div class="prompt-builder prompt-builder--accordion" data-template="请将以下文本按{rule}进行排版：{content}。要求每段{paragraphRule}，并处理{highlightRule}，最后保留{keepRule}。">
+                <button class="prompt-builder__trigger" type="button" aria-expanded="false">
+                    <span class="prompt-builder__title">文本排版</span>
+                    <span class="prompt-builder__arrow">展开</span>
+                </button>
+                <div class="prompt-builder__body">
+                <div class="prompt-builder__desc">适用于段落调整、字体设置、序号排版、对齐方式。</div>
+                <div class="prompt-builder__fields">
+                    <label>排版规则<input data-key="rule" type="text" placeholder="例如：按逻辑重新分段"></label>
+                    <label>段落要求<input data-key="paragraphRule" type="text" placeholder="例如：不超过5行"></label>
+                    <label>强调规则<input data-key="highlightRule" type="text" placeholder="例如：关键术语加粗"></label>
+                    <label>保留规则<input data-key="keepRule" type="text" placeholder="例如：原有换行"></label>
+                    <label class="prompt-builder__wide">原始文本<textarea data-key="content" rows="4" placeholder="粘贴需要排版的文本"></textarea></label>
+                </div>
+                <div class="prompt-builder__output" aria-live="polite"></div>
+                <button class="copy-button" type="button">一键复制</button>
+                </div>
+            </div>
+            <div class="prompt-builder prompt-builder--accordion" data-template="我有一批文件需要整理，文件情况如下：{files}。请基于{basis}给出{count}种分类策略，并对比每种策略的优劣，最后给出推荐方案和文件命名规则。">
+                <button class="prompt-builder__trigger" type="button" aria-expanded="false">
+                    <span class="prompt-builder__title">文件整理</span>
+                    <span class="prompt-builder__arrow">展开</span>
+                </button>
+                <div class="prompt-builder__body">
+                <div class="prompt-builder__desc">适用于文件名批量修改、文件分类建议。</div>
+                <div class="prompt-builder__fields">
+                    <label>分类依据<input data-key="basis" type="text" placeholder="例如：扩展名、修改日期、项目名称"></label>
+                    <label>策略数量<input data-key="count" type="text" placeholder="例如：2"></label>
+                    <label class="prompt-builder__wide">文件情况<textarea data-key="files" rows="4" placeholder="描述文件类型、数量、当前命名方式"></textarea></label>
+                </div>
+                <div class="prompt-builder__output" aria-live="polite"></div>
+                <button class="copy-button" type="button">一键复制</button>
+                </div>
+            </div>
+            <div class="prompt-builder prompt-builder--accordion" data-template="我现在要写一份{templateType}，用于{scene}。请你扮演{role}，帮我用以下内容填充模板：{content}。要求{requirements}。模板结构：{structure}。">
+                <button class="prompt-builder__trigger" type="button" aria-expanded="false">
+                    <span class="prompt-builder__title">模板套用</span>
+                    <span class="prompt-builder__arrow">展开</span>
+                </button>
+                <div class="prompt-builder__body">
+                <div class="prompt-builder__desc">适用于简历模板、报告模板、表格模板的内容填充与排版。</div>
+                <div class="prompt-builder__fields">
+                    <label>模板类型<input data-key="templateType" type="text" placeholder="例如：周报、简历、项目报告"></label>
+                    <label>使用场景<input data-key="scene" type="text" placeholder="例如：提交给老板"></label>
+                    <label>扮演角色<input data-key="role" type="text" placeholder="例如：有10年经验的职场助理"></label>
+                    <label>输出要求<input data-key="requirements" type="text" placeholder="例如：排版整齐、重点突出、不少于500字"></label>
+                    <label class="prompt-builder__wide">模板结构<textarea data-key="structure" rows="3" placeholder="例如：工作亮点、数据表现、问题与改进、下周计划"></textarea></label>
+                    <label class="prompt-builder__wide">填充内容<textarea data-key="content" rows="4" placeholder="粘贴需要套入模板的材料"></textarea></label>
+                </div>
+                <div class="prompt-builder__output" aria-live="polite"></div>
+                <button class="copy-button" type="button">一键复制</button>
+                </div>
+            </div>
         </div>
         <div class="reader-footer">
             ✦ 磨砂玻璃视界 · 可承载数万字内容 ✦ 滚动流畅 · 沉浸阅读
         </div>
     </div>
   </div>
+  <script src="prompt-builder.js"></script>
 
 </body>
 
