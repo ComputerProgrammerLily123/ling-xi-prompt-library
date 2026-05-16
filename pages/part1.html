@@ -24,21 +24,88 @@
             <h2>内容创作类</h2>
         </div>
         <div class="reader-content">
-           <ul>
-              <li>文案创作（短视频文案、朋友圈文案、营销文案、海报文案）：<br>现在是（时间节点），请你使用（文案风格）风格，帮我生成一段（应用场景+目标受众）的（文本类型），（字数要求）。补充信息（产品、服务、图片或视频内容描述）。</li>
-              <hr class="divider-gradient">
-              <li>文章撰写（工作总结、工作报告、演讲稿、随笔、议论文）：<br>请帮我撰写一篇关于（主题）的文章，用于（使用场景），（目标读者）（字数要求）以（文章结构如：引言 + 分析 + 总结）结构行文，重点突出（重点）内容。</li>
-              <hr class="divider-gradient">
-              <li>内容优化（润色、缩写、扩写、改写、纠错）：<br>请对以下内容进行（优化方式）：（粘贴/上传文本）使用（语言风格）风格行文，字数（字数要求）。着重修改（eg.逻辑、表达、语气、结构等）保留核心信息，不改变原意，适用于（书面/纸面）表达。</li>
-              <hr class="divider-gradient">
-              <li>创意生成（标题、选题、灵感、段子、故事大纲）：<br>请围绕（主题）这个主题，生成10个（文本类型），文本风格（风格），适用于（平台。eg.小红书、抖音）平台，（目标受众）。每个创意附带简短说明。</li>
-           </ul>
+            <div class="prompt-builder prompt-builder--accordion" data-template="现在是{time}，请你使用{style}风格，帮我生成一段{audience}的{textType}，{length}。补充信息：{extra}。">
+                <button class="prompt-builder__trigger" type="button" aria-expanded="false">
+                    <span class="prompt-builder__title">文案创作</span>
+                    <span class="prompt-builder__arrow">展开</span>
+                </button>
+                <div class="prompt-builder__body">
+                    <div class="prompt-builder__desc">适用于短视频文案、朋友圈文案、营销文案、海报文案。</div>
+                    <div class="prompt-builder__fields">
+                        <label>时间节点<input data-key="time" type="text" placeholder="例如：双十一预热期"></label>
+                        <label>文案风格<input data-key="style" type="text" placeholder="例如：轻松种草"></label>
+                        <label>应用场景+目标受众<input data-key="audience" type="text" placeholder="例如：面向25岁上班族的通勤场景"></label>
+                        <label>文本类型<input data-key="textType" type="text" placeholder="例如：30秒短视频口播文案"></label>
+                        <label>字数要求<input data-key="length" type="text" placeholder="例如：120字以内"></label>
+                        <label class="prompt-builder__wide">补充信息<textarea data-key="extra" rows="3" placeholder="例如：产品是温和保湿面霜，主打不黏腻、敏感肌可用"></textarea></label>
+                    </div>
+                    <div class="prompt-builder__output" aria-live="polite"></div>
+                    <button class="copy-button" type="button">一键复制</button>
+                </div>
+            </div>
+            <div class="prompt-builder prompt-builder--accordion" data-template="请帮我撰写一篇关于{topic}的文章，用于{scene}，面向{reader}，{length}。请以{structure}结构行文，重点突出{focus}内容。">
+                <button class="prompt-builder__trigger" type="button" aria-expanded="false">
+                    <span class="prompt-builder__title">文章撰写</span>
+                    <span class="prompt-builder__arrow">展开</span>
+                </button>
+                <div class="prompt-builder__body">
+                    <div class="prompt-builder__desc">适用于工作总结、工作报告、演讲稿、随笔、议论文。</div>
+                    <div class="prompt-builder__fields">
+                        <label>主题<input data-key="topic" type="text" placeholder="例如：AI工具如何提升办公效率"></label>
+                        <label>使用场景<input data-key="scene" type="text" placeholder="例如：部门内部分享"></label>
+                        <label>目标读者<input data-key="reader" type="text" placeholder="例如：非技术背景同事"></label>
+                        <label>字数要求<input data-key="length" type="text" placeholder="例如：800字左右"></label>
+                        <label>文章结构<input data-key="structure" type="text" placeholder="例如：引言 + 案例 + 方法 + 总结"></label>
+                        <label>重点内容<input data-key="focus" type="text" placeholder="例如：落地方法和注意事项"></label>
+                    </div>
+                    <div class="prompt-builder__output" aria-live="polite"></div>
+                    <button class="copy-button" type="button">一键复制</button>
+                </div>
+            </div>
+            <div class="prompt-builder prompt-builder--accordion" data-template="请对以下内容进行{method}：{content}。使用{style}风格行文，字数{length}。着重修改{focus}，保留核心信息，不改变原意，适用于{scene}表达。">
+                <button class="prompt-builder__trigger" type="button" aria-expanded="false">
+                    <span class="prompt-builder__title">内容优化</span>
+                    <span class="prompt-builder__arrow">展开</span>
+                </button>
+                <div class="prompt-builder__body">
+                    <div class="prompt-builder__desc">适用于润色、缩写、扩写、改写、纠错。</div>
+                    <div class="prompt-builder__fields">
+                        <label>优化方式<input data-key="method" type="text" placeholder="例如：润色并压缩"></label>
+                        <label>语言风格<input data-key="style" type="text" placeholder="例如：正式、清晰、有亲和力"></label>
+                        <label>字数要求<input data-key="length" type="text" placeholder="例如：300字以内"></label>
+                        <label>修改重点<input data-key="focus" type="text" placeholder="例如：逻辑、表达、语气"></label>
+                        <label>适用表达<input data-key="scene" type="text" placeholder="例如：书面汇报"></label>
+                        <label class="prompt-builder__wide">原始内容<textarea data-key="content" rows="4" placeholder="在这里粘贴需要优化的文本"></textarea></label>
+                    </div>
+                    <div class="prompt-builder__output" aria-live="polite"></div>
+                    <button class="copy-button" type="button">一键复制</button>
+                </div>
+            </div>
+            <div class="prompt-builder prompt-builder--accordion" data-template="请围绕{topic}这个主题，生成10个{textType}，文本风格为{style}，适用于{platform}平台，目标受众是{audience}。每个创意附带简短说明。">
+                <button class="prompt-builder__trigger" type="button" aria-expanded="false">
+                    <span class="prompt-builder__title">创意生成</span>
+                    <span class="prompt-builder__arrow">展开</span>
+                </button>
+                <div class="prompt-builder__body">
+                    <div class="prompt-builder__desc">适用于标题、选题、灵感、段子、故事大纲。</div>
+                    <div class="prompt-builder__fields">
+                        <label>主题<input data-key="topic" type="text" placeholder="例如：新手学习AI写作"></label>
+                        <label>文本类型<input data-key="textType" type="text" placeholder="例如：小红书标题"></label>
+                        <label>文本风格<input data-key="style" type="text" placeholder="例如：轻松、有网感"></label>
+                        <label>适用平台<input data-key="platform" type="text" placeholder="例如：小红书"></label>
+                        <label>目标受众<input data-key="audience" type="text" placeholder="例如：刚入门的职场新人"></label>
+                    </div>
+                    <div class="prompt-builder__output" aria-live="polite"></div>
+                    <button class="copy-button" type="button">一键复制</button>
+                </div>
+            </div>
         </div>
         <div class="reader-footer">
             ✦ 磨砂玻璃视界 · 可承载数万字内容 ✦ 滚动流畅 · 沉浸阅读
         </div>
     </div>
   </div>
+  <script src="prompt-builder.js"></script>
 
 </body>
 
