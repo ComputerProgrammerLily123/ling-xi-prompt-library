@@ -1,102 +1,126 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>灵犀指令库</title>
+  <title>灵犀指令库 · 逻辑推导</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
   <div class="container">
     <nav class="nav-bar">
-          <span class="nav-brand">灵犀指令库</span>
-          <ul class="nav-menu">
-              <li class="nav-item"><a href="../index.html">首页</a></li>
-          </ul>
+      <span class="nav-brand">灵犀指令库</span>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html">首页</a></li>
+      </ul>
     </nav>
-    <div id="stars"></div>
-    <div id="stars2"></div>
-    <div id="stars3"></div>
+    <div id="stars"></div><div id="stars2"></div><div id="stars3"></div>
     <div class="glass-reader">
-        <div class="reader-header">
-            <h2>逻辑推导类</h2>
+      <div class="reader-header"><h2>逻辑推导类</h2></div>
+      <div class="reader-content">
+
+        <!-- 逻辑分析 - 优化：拆解维度、加入因果链、结构化输出 -->
+        <div class="prompt-builder prompt-builder--accordion" data-template="请对{target}进行{analysisType}。按以下步骤展开：
+1. 问题界定：用一句话重述分析对象，确保理解准确。
+2. 维度拆解：从{dimension}等维度，分别列出关键因素（每个维度至少2个）。
+3. 因果链路：画出核心因果关系链，并用“如果…那么…”句式解释。
+4. 潜在风险：指出至少2个被忽略的风险或漏洞。
+5. 总结：用{format}格式汇总，给出最核心的3条洞察。">
+          <button class="prompt-builder__trigger" type="button" aria-expanded="false">
+            <span class="prompt-builder__title">逻辑分析</span>
+            <span class="prompt-builder__arrow">展开</span>
+          </button>
+          <div class="prompt-builder__body">
+            <div class="prompt-builder__desc">问题拆解、因果分析、利弊分析、风险分析</div>
+            <div class="prompt-builder__fields">
+              <label>目标/问题<input data-key="target" type="text" placeholder="例如：用户增长下滑"></label>
+              <label>分析类型<input data-key="analysisType" type="text" placeholder="例如：5-Why因果分析"></label>
+              <label>分析维度<input data-key="dimension" type="text" placeholder="例如：成本、效率、风险、资源"></label>
+              <label>输出格式<input data-key="format" type="text" placeholder="例如：清单式、表格、思维导图式"></label>
+              <label class="chain-check"><input type="checkbox" data-key="chain"> 启用深度思考（思维链）</label>
+            </div>
+            <div class="prompt-builder__output" aria-live="polite"></div>
+            <button class="copy-button" type="button">一键复制</button>
+          </div>
         </div>
-        <div class="reader-content">
-            <div class="prompt-builder prompt-builder--accordion" data-template="请围绕{target}进行{analysisType}。请从{dimension}维度展开，找出核心逻辑、关键因果关系和潜在风险，并使用{format}呈现。">
-                <button class="prompt-builder__trigger" type="button" aria-expanded="false">
-                    <span class="prompt-builder__title">逻辑分析</span>
-                    <span class="prompt-builder__arrow">展开</span>
-                </button>
-                <div class="prompt-builder__body">
-                <div class="prompt-builder__desc">适用于问题拆解、因果分析、利弊分析、风险分析。</div>
-                <div class="prompt-builder__fields">
-                    <label>目标/问题<input data-key="target" type="text" placeholder="例如：用户增长下滑"></label>
-                    <label>分析类型<input data-key="analysisType" type="text" placeholder="例如：5-Why因果分析"></label>
-                    <label>分析维度<input data-key="dimension" type="text" placeholder="例如：成本、效率、风险、资源"></label>
-                    <label>输出格式<input data-key="format" type="text" placeholder="例如：清单式、表格、思维导图式"></label>
-                </div>
-                <div class="prompt-builder__output" aria-live="polite"></div>
-                <button class="copy-button" type="button">一键复制</button>
-                </div>
+
+        <!-- 方案规划 - 优化：分阶段、加入预案、风险提示 -->
+        <div class="prompt-builder prompt-builder--accordion" data-template="我要在{period}内达成{goal}。请以{format}输出一份执行方案，必须包含：
+1. 阶段拆解：将整体周期拆成至少3个阶段，每阶段目标明确。
+2. 具体行动：每个阶段列出3-5项可执行任务，标注优先级和负责人（如适用）。
+3. 所需资源：列出每阶段需要的资源清单（时间、人力、预算等）。
+4. 风险预案：预判至少2个可能卡点，并给出备选方案。
+5. 方案要求：{requirements}。
+在给出方案前，请先简述你为什么这么规划（逻辑自检）。">
+          <button class="prompt-builder__trigger" type="button" aria-expanded="false">
+            <span class="prompt-builder__title">方案规划</span>
+            <span class="prompt-builder__arrow">展开</span>
+          </button>
+          <div class="prompt-builder__body">
+            <div class="prompt-builder__desc">工作计划、项目方案、学习计划、活动方案</div>
+            <div class="prompt-builder__fields">
+              <label>时间周期<input data-key="period" type="text" placeholder="例如：7天、一个月"></label>
+              <label>具体目标<input data-key="goal" type="text" placeholder="例如：完成一次产品发布"></label>
+              <label>输出格式<input data-key="format" type="text" placeholder="例如：Markdown表格"></label>
+              <label class="prompt-builder__wide">方案要求<textarea data-key="requirements" rows="3" placeholder="例如：阶段行动、核心任务、资源清单、风险预案"></textarea></label>
+              <label class="chain-check"><input type="checkbox" data-key="chain"> 启用深度思考（思维链）</label>
             </div>
-            <div class="prompt-builder prompt-builder--accordion" data-template="我想在{period}内达成{goal}。请为我制定一份详细的执行方案。方案需包含：{requirements}。请以{format}形式输出。">
-                <button class="prompt-builder__trigger" type="button" aria-expanded="false">
-                    <span class="prompt-builder__title">方案规划</span>
-                    <span class="prompt-builder__arrow">展开</span>
-                </button>
-                <div class="prompt-builder__body">
-                <div class="prompt-builder__desc">适用于工作计划、项目方案、学习计划、活动方案。</div>
-                <div class="prompt-builder__fields">
-                    <label>时间周期<input data-key="period" type="text" placeholder="例如：7天、一个月"></label>
-                    <label>具体目标<input data-key="goal" type="text" placeholder="例如：完成一次产品发布"></label>
-                    <label>输出格式<input data-key="format" type="text" placeholder="例如：Markdown表格"></label>
-                    <label class="prompt-builder__wide">方案要求<textarea data-key="requirements" rows="3" placeholder="例如：阶段行动、核心任务、资源清单、风险预案"></textarea></label>
-                </div>
-                <div class="prompt-builder__output" aria-live="polite"></div>
-                <button class="copy-button" type="button">一键复制</button>
-                </div>
-            </div>
-            <div class="prompt-builder prompt-builder--accordion" data-template="我的观点是：{viewpoint}。支撑理由如下：{reasons}。请你扮演一名持反对意见的批评家，找出我逻辑中的潜在漏洞或假性因果。请针对这些漏洞，告诉我如何完善论证以达成逻辑闭环。">
-                <button class="prompt-builder__trigger" type="button" aria-expanded="false">
-                    <span class="prompt-builder__title">论证推导</span>
-                    <span class="prompt-builder__arrow">展开</span>
-                </button>
-                <div class="prompt-builder__body">
-                <div class="prompt-builder__desc">适用于观点论证、逻辑闭环、漏洞排查。</div>
-                <div class="prompt-builder__fields">
-                    <label class="prompt-builder__wide">观点<textarea data-key="viewpoint" rows="3" placeholder="描述你的核心观点"></textarea></label>
-                    <label class="prompt-builder__wide">支撑理由<textarea data-key="reasons" rows="3" placeholder="例如：理由1、理由2、理由3"></textarea></label>
-                </div>
-                <div class="prompt-builder__output" aria-live="polite"></div>
-                <button class="copy-button" type="button">一键复制</button>
-                </div>
-            </div>
-            <div class="prompt-builder prompt-builder--accordion" data-template="我有以下碎片化的想法：{ideas}。请帮我梳理逻辑关系，构建一个{framework}，提炼出一个核心主线，并按{order}重新排列这些内容。">
-                <button class="prompt-builder__trigger" type="button" aria-expanded="false">
-                    <span class="prompt-builder__title">思路梳理</span>
-                    <span class="prompt-builder__arrow">展开</span>
-                </button>
-                <div class="prompt-builder__body">
-                <div class="prompt-builder__desc">适用于核心要点提炼、逻辑框架搭建。</div>
-                <div class="prompt-builder__fields">
-                    <label>结构框架<input data-key="framework" type="text" placeholder="例如：金字塔结构"></label>
-                    <label>排序逻辑<input data-key="order" type="text" placeholder="例如：重要性、时间流、因果链"></label>
-                    <label class="prompt-builder__wide">碎片想法<textarea data-key="ideas" rows="4" placeholder="输入想法1、想法2、想法3"></textarea></label>
-                </div>
-                <div class="prompt-builder__output" aria-live="polite"></div>
-                <button class="copy-button" type="button">一键复制</button>
-                </div>
-            </div>
+            <div class="prompt-builder__output" aria-live="polite"></div>
+            <button class="copy-button" type="button">一键复制</button>
+          </div>
         </div>
-        <div class="reader-footer">
-            ✦ 磨砂玻璃视界 · 可承载数万字内容 ✦ 滚动流畅 · 沉浸阅读
+
+        <!-- 论证推导 - 优化：强制对立观点、要求补全逻辑、最终形成闭环 -->
+        <div class="prompt-builder prompt-builder--accordion" data-template="我的核心观点是：{viewpoint}。支撑理由：{reasons}。
+请你扮演持反对意见的批评家，执行以下步骤：
+1. 找出我论证中至少3个逻辑漏洞（如因果倒置、样本偏差、诉诸情感等）。
+2. 针对每个漏洞，提出尖锐但合理的质疑。
+3. 然后，切换到支持者角色，针对质疑给出补充证据或推理，帮助我完善论证。
+4. 最终，将修补后的论证整理成一段逻辑严密的文字，并标注关键逻辑节点。">
+          <button class="prompt-builder__trigger" type="button" aria-expanded="false">
+            <span class="prompt-builder__title">论证推导</span>
+            <span class="prompt-builder__arrow">展开</span>
+          </button>
+          <div class="prompt-builder__body">
+            <div class="prompt-builder__desc">观点论证、逻辑闭环、漏洞排查</div>
+            <div class="prompt-builder__fields">
+              <label class="prompt-builder__wide">核心观点<textarea data-key="viewpoint" rows="3" placeholder="描述你的核心观点"></textarea></label>
+              <label class="prompt-builder__wide">支撑理由<textarea data-key="reasons" rows="3" placeholder="例如：理由1、理由2、理由3"></textarea></label>
+              <label class="chain-check"><input type="checkbox" data-key="chain"> 启用深度思考（思维链）</label>
+            </div>
+            <div class="prompt-builder__output" aria-live="polite"></div>
+            <button class="copy-button" type="button">一键复制</button>
+          </div>
         </div>
+
+        <!-- 思路梳理 - 优化：强制提炼主线、给出逻辑框架选项、建议可视化结构 -->
+        <div class="prompt-builder prompt-builder--accordion" data-template="我有一批零散想法：{ideas}。请按以下流程帮我梳理：
+1. 归类：将这些想法按主题或逻辑关系分为3-5组，并给每组命名。
+2. 框架建议：推荐一个最适合的逻辑框架（如{framework}），并说明为什么。
+3. 核心主线：用一句话提炼所有想法的核心主线。
+4. 排序重组：按{order}重新排列内容，形成连贯的逻辑流。
+5. 输出：最终以清晰的编号列表输出，每层附带简短解释。">
+          <button class="prompt-builder__trigger" type="button" aria-expanded="false">
+            <span class="prompt-builder__title">思路梳理</span>
+            <span class="prompt-builder__arrow">展开</span>
+          </button>
+          <div class="prompt-builder__body">
+            <div class="prompt-builder__desc">核心要点提炼、逻辑框架搭建</div>
+            <div class="prompt-builder__fields">
+              <label>期望框架<input data-key="framework" type="text" placeholder="例如：金字塔结构"></label>
+              <label>排序逻辑<input data-key="order" type="text" placeholder="例如：重要性、时间流、因果链"></label>
+              <label class="prompt-builder__wide">碎片想法<textarea data-key="ideas" rows="4" placeholder="输入想法1、想法2、想法3"></textarea></label>
+              <label class="chain-check"><input type="checkbox" data-key="chain"> 启用深度思考（思维链）</label>
+            </div>
+            <div class="prompt-builder__output" aria-live="polite"></div>
+            <button class="copy-button" type="button">一键复制</button>
+          </div>
+        </div>
+
+      </div>
+      <div class="reader-footer">✦ 磨砂玻璃视界 · 可承载数万字内容 ✦ 滚动流畅 · 沉浸阅读</div>
     </div>
   </div>
   <script src="prompt-builder.js"></script>
-
 </body>
-
 </html>
