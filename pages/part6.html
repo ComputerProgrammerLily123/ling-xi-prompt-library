@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -10,14 +11,15 @@
   <div class="container">
     <nav class="nav-bar">
       <span class="nav-brand">灵犀指令库</span>
-      <ul class="nav-menu"><li class="nav-item"><a href="/index.html">首页</a></li></ul>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="../index.html">首页</a></li>
+      </ul>
     </nav>
     <div id="stars"></div><div id="stars2"></div><div id="stars3"></div>
     <div class="glass-reader">
       <div class="reader-header"><h2>格式处理类</h2></div>
       <div class="reader-content">
         
-        <!-- 格式转换 - 优化：保留内容+样式规则+风险提醒 -->
         <div class="prompt-builder prompt-builder--accordion" data-template="请将以下{sourceFormat}转换为{targetFormat}：{content}。保留{keep}，保持{styleRule}一致，同时提醒可能遇到的格式错乱问题及解决方法。">
           <button class="prompt-builder__trigger" type="button" aria-expanded="false">
             <span class="prompt-builder__title">格式转换</span>
@@ -37,7 +39,6 @@
           </div>
         </div>
 
-        <!-- 文本排版 -->
         <div class="prompt-builder prompt-builder--accordion" data-template="请将以下文本按{rule}排版：{content}。要求每段{paragraphRule}，并处理{highlightRule}，最后保留{keepRule}。">
           <button class="prompt-builder__trigger" type="button" aria-expanded="false">
             <span class="prompt-builder__title">文本排版</span>
@@ -57,7 +58,6 @@
           </div>
         </div>
 
-        <!-- 文件整理 - 优化：策略对比+推荐方案 -->
         <div class="prompt-builder prompt-builder--accordion" data-template="我有一批文件需整理：{files}。请基于{basis}给出{count}种分类策略，并对比优劣，最后给出推荐方案和文件命名规则。">
           <button class="prompt-builder__trigger" type="button" aria-expanded="false">
             <span class="prompt-builder__title">文件整理</span>
@@ -75,7 +75,6 @@
           </div>
         </div>
 
-        <!-- 模板套用 - 优化：加入范例参考 -->
         <div class="prompt-builder prompt-builder--accordion" data-template="我要写一份{templateType}，用于{scene}。请你扮演{role}，帮我用以下内容填充模板：{content}。模板结构：{structure}。请参考以下范例风格（只模仿风格，不涉及内容）：【范例】项目：XX复盘。亮点：提前交付，关键动作是...">
           <button class="prompt-builder__trigger" type="button" aria-expanded="false">
             <span class="prompt-builder__title">模板套用</span>
@@ -99,5 +98,8 @@
     </div>
   </div>
   <script src="prompt-builder.js"></script>
+</body>
+</html>
+```
 </body>
 </html>
