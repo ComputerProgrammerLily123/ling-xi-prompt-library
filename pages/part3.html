@@ -1,59 +1,39 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>灵犀指令库 · 问题解答</title>
+  <title>灵犀指令库 · 代码开发</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
     <nav class="nav-bar">
       <span class="nav-brand">灵犀指令库</span>
-      <ul class="nav-menu"><li class="nav-item"><a href="ling-xi-prompt-library/index.html">首页</a></li></ul>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="../index.html">首页</a></li>
+      </ul>
     </nav>
     <div id="stars"></div><div id="stars2"></div><div id="stars3"></div>
     <div class="glass-reader">
-      <div class="reader-header"><h2>问题解答类</h2></div>
+      <div class="reader-header"><h2>代码开发类</h2></div>
       <div class="reader-content">
         
-        <!-- 知识查询 - 优化：明确受众+辅助理解+总结 -->
-        <div class="prompt-builder prompt-builder--accordion" data-template="你是一名{field}领域专家。请用{audience}能听懂的话，解释{concept}。重点说明核心机制，运用{method}辅助理解，最后总结3个最关键的知识点。">
+        <div class="prompt-builder prompt-builder--accordion" data-template="请用{language}编写一段代码，实现{function}功能。要求：{requirement}。输入格式为{inputFormat}，输出格式为{outputFormat}。请添加必要的注释，并考虑{consider}边界情况。">
           <button class="prompt-builder__trigger" type="button" aria-expanded="false">
-            <span class="prompt-builder__title">知识查询</span>
+            <span class="prompt-builder__title">代码生成</span>
             <span class="prompt-builder__arrow">展开</span>
           </button>
           <div class="prompt-builder__body">
-            <div class="prompt-builder__desc">概念解释、原理说明、知识点梳理</div>
+            <div class="prompt-builder__desc">根据需求生成函数、脚本、组件</div>
             <div class="prompt-builder__fields">
-              <label>专业领域<input data-key="field" type="text" placeholder="例如：量子物理学"></label>
-              <label>目标受众<input data-key="audience" type="text" placeholder="例如：10岁小孩"></label>
-              <label>核心概念<input data-key="concept" type="text" placeholder="例如：量子纠缠"></label>
-              <label>辅助方式<input data-key="method" type="text" placeholder="例如：生活类比和简单例子"></label>
-            </div>
-            <div class="prompt-builder__output" aria-live="polite"></div>
-            <button class="copy-button" type="button">一键复制</button>
-          </div>
-        </div>
-
-        <!-- 疑问解答 - 重大升级：思维链+诊断+行动清单 -->
-        <div class="prompt-builder prompt-builder--accordion" data-template="【背景】{scene}场景下，我遇到了以下问题：{problem}。
-请以{standard}领域资深顾问身份，按以下步骤解决：
-1. 问题重述与诊断：重述我的问题，确保理解，指出核心卡点。
-2. 原因分析：从多角度分析可能的原因（至少{count}个），按可能性排序。
-3. 解决方案：针对每个原因给出可操作步骤，推荐一个主方案，说明优点和风险。
-4. 行动清单：输出简洁的下一步行动，我照做就能开始。">
-          <button class="prompt-builder__trigger" type="button" aria-expanded="false">
-            <span class="prompt-builder__title">疑问解答</span>
-            <span class="prompt-builder__arrow">展开</span>
-          </button>
-          <div class="prompt-builder__body">
-            <div class="prompt-builder__desc">日常疑问、专业问题、实操问题</div>
-            <div class="prompt-builder__fields">
-              <label>具体场景<input data-key="scene" type="text" placeholder="例如：团队协作沟通"></label>
-              <label>参考标准<input data-key="standard" type="text" placeholder="例如：项目管理最佳实践"></label>
-              <label>方案数量<input data-key="count" type="text" placeholder="例如：3"></label>
-              <label class="prompt-builder__wide">问题细节（越详细越好）<textarea data-key="problem" rows="5" placeholder="请详细描述你遇到的问题，包括背景、尝试过的方法等"></textarea></label>
+              <label>编程语言<input data-key="language" type="text" placeholder="例如：Python、JavaScript、Java"></label>
+              <label>实现功能<input data-key="function" type="text" placeholder="例如：计算两个日期之间的工作日天数"></label>
+              <label>具体要求<input data-key="requirement" type="text" placeholder="例如：排除法定节假日，支持自定义假期列表"></label>
+              <label>输入格式<input data-key="inputFormat" type="text" placeholder="例如：YYYY-MM-DD格式的起止日期"></label>
+              <label>输出格式<input data-key="outputFormat" type="text" placeholder="例如：整数天数"></label>
+              <label>需考虑<input data-key="consider" type="text" placeholder="例如：起止日期顺序错误、无效日期"></label>
               <label class="chain-check"><input type="checkbox" data-key="chain"> 启用深度思考（思维链）</label>
             </div>
             <div class="prompt-builder__output" aria-live="polite"></div>
@@ -61,42 +41,92 @@
           </div>
         </div>
 
-        <!-- 信息检索 - 优化：结构化输出+字数控制 -->
-        <div class="prompt-builder prompt-builder--accordion" data-template="请汇总关于{topic}的信息。阅读以下资料：{material}。按{structure}结构输出，字数{length}以内。先提炼资料核心，再组织回答。">
+        <div class="prompt-builder prompt-builder--accordion" data-template="请检查以下{language}代码中的问题：{code}。重点关注{focus}。请指出{count}个主要问题，说明原因，并提供修复后的代码。">
           <button class="prompt-builder__trigger" type="button" aria-expanded="false">
-            <span class="prompt-builder__title">信息检索</span>
+            <span class="prompt-builder__title">代码调试</span>
             <span class="prompt-builder__arrow">展开</span>
           </button>
           <div class="prompt-builder__body">
-            <div class="prompt-builder__desc">资料汇总、文献摘要、热点梳理</div>
+            <div class="prompt-builder__desc">查找错误、性能瓶颈、代码异味</div>
             <div class="prompt-builder__fields">
-              <label>主题/热点<input data-key="topic" type="text" placeholder="例如：AI搜索发展趋势"></label>
-              <label>输出结构<input data-key="structure" type="text" placeholder="例如：核心观点、争议点、影响"></label>
-              <label>字数要求<input data-key="length" type="text" placeholder="例如：500字"></label>
-              <label class="prompt-builder__wide">资料/关键词<textarea data-key="material" rows="4" placeholder="粘贴资料或输入关键词"></textarea></label>
+              <label>编程语言<input data-key="language" type="text" placeholder="例如：Python、JavaScript"></label>
+              <label>重点关注<input data-key="focus" type="text" placeholder="例如：内存泄漏、异步处理、空指针"></label>
+              <label>问题数量<input data-key="count" type="text" placeholder="例如：3"></label>
+              <label class="prompt-builder__wide">代码内容<textarea data-key="code" rows="6" placeholder="粘贴需要调试的代码"></textarea></label>
+              <label class="chain-check"><input type="checkbox" data-key="chain"> 启用深度思考（思维链）</label>
             </div>
             <div class="prompt-builder__output" aria-live="polite"></div>
             <button class="copy-button" type="button">一键复制</button>
           </div>
         </div>
 
-        <!-- 建议提供 - 优化：背景+需求+限制+方案对比 -->
-        <div class="prompt-builder prompt-builder--accordion" data-template="我面临{background}的决策，核心需求是{need}，限制条件是{limit}。当前选项：{options}。请提供{adviceType}，按以下步骤：
-1. 分析每个选项的优缺点。
-2. 给出倾向性建议，说明理由。
-3. 提示可能的风险和下一步行动。">
+        <div class="prompt-builder prompt-builder--accordion" data-template="请将以下{fromLanguage}代码转换为{toLanguage}代码：{code}。转换时请保持{keep}逻辑不变，遵循{toLanguage}的最佳实践。转换后请说明主要改动点。">
           <button class="prompt-builder__trigger" type="button" aria-expanded="false">
-            <span class="prompt-builder__title">建议提供</span>
+            <span class="prompt-builder__title">代码转换</span>
             <span class="prompt-builder__arrow">展开</span>
           </button>
           <div class="prompt-builder__body">
-            <div class="prompt-builder__desc">方案建议、选择建议、优化建议</div>
+            <div class="prompt-builder__desc">语言迁移、框架升级、语法适配</div>
             <div class="prompt-builder__fields">
-              <label>决策背景<input data-key="background" type="text" placeholder="例如：选购相机、职业选择"></label>
-              <label>核心需求<input data-key="need" type="text" placeholder="例如：预算有限但需要便携"></label>
-              <label>限制条件<input data-key="limit" type="text" placeholder="例如：预算5000元以内"></label>
-              <label>建议类型<input data-key="adviceType" type="text" placeholder="例如：倾向性选择建议"></label>
-              <label class="prompt-builder__wide">当前方案/备选项<textarea data-key="options" rows="3" placeholder="例如：方案A、方案B，或目前已有方案"></textarea></label>
+              <label>源语言<input data-key="fromLanguage" type="text" placeholder="例如：Python"></label>
+              <label>目标语言<input data-key="toLanguage" type="text" placeholder="例如：JavaScript"></label>
+              <label>保持内容<input data-key="keep" type="text" placeholder="例如：函数签名、核心算法"></label>
+              <label class="prompt-builder__wide">原始代码<textarea data-key="code" rows="6" placeholder="粘贴需要转换的代码"></textarea></label>
+            </div>
+            <div class="prompt-builder__output" aria-live="polite"></div>
+            <button class="copy-button" type="button">一键复制</button>
+          </div>
+        </div>
+
+        <div class="prompt-builder prompt-builder--accordion" data-template="请为以下{language}代码生成单元测试：{code}。测试框架使用{framework}，覆盖{coverage}场景（正常/边界/异常）。每个测试用例包含输入、预期输出和说明。">
+          <button class="prompt-builder__trigger" type="button" aria-expanded="false">
+            <span class="prompt-builder__title">测试用例</span>
+            <span class="prompt-builder__arrow">展开</span>
+          </button>
+          <div class="prompt-builder__body">
+            <div class="prompt-builder__desc">单元测试、集成测试、边界测试</div>
+            <div class="prompt-builder__fields">
+              <label>编程语言<input data-key="language" type="text" placeholder="例如：Python"></label>
+              <label>测试框架<input data-key="framework" type="text" placeholder="例如：pytest、Jest、JUnit"></label>
+              <label>覆盖场景<input data-key="coverage" type="text" placeholder="例如：正常输入、边界值、异常输入"></label>
+              <label class="prompt-builder__wide">被测代码<textarea data-key="code" rows="6" placeholder="粘贴需要生成测试的代码"></textarea></label>
+              <label class="chain-check"><input type="checkbox" data-key="chain"> 启用深度思考（思维链）</label>
+            </div>
+            <div class="prompt-builder__output" aria-live="polite"></div>
+            <button class="copy-button" type="button">一键复制</button>
+          </div>
+        </div>
+
+        <div class="prompt-builder prompt-builder--accordion" data-template="请解释以下{language}代码的工作原理：{code}。重点说明{part}部分。请用{audience}能理解的语言解释，并举例说明其应用场景。">
+          <button class="prompt-builder__trigger" type="button" aria-expanded="false">
+            <span class="prompt-builder__title">代码解释</span>
+            <span class="prompt-builder__arrow">展开</span>
+          </button>
+          <div class="prompt-builder__body">
+            <div class="prompt-builder__desc">理解复杂逻辑、学习代码、知识传承</div>
+            <div class="prompt-builder__fields">
+              <label>编程语言<input data-key="language" type="text" placeholder="例如：TypeScript"></label>
+              <label>重点部分<input data-key="part" type="text" placeholder="例如：递归逻辑、闭包、异步流程"></label>
+              <label>目标听众<input data-key="audience" type="text" placeholder="例如：初学者、有经验的开发者"></label>
+              <label class="prompt-builder__wide">待解释代码<textarea data-key="code" rows="6" placeholder="粘贴需要解释的代码"></textarea></label>
+            </div>
+            <div class="prompt-builder__output" aria-live="polite"></div>
+            <button class="copy-button" type="button">一键复制</button>
+          </div>
+        </div>
+
+        <div class="prompt-builder prompt-builder--accordion" data-template="请优化以下{language}代码：{code}。优化目标：{target}（性能/可读性/可维护性）。请给出优化后的代码，并逐条说明优化点和预期收益。">
+          <button class="prompt-builder__trigger" type="button" aria-expanded="false">
+            <span class="prompt-builder__title">代码优化</span>
+            <span class="prompt-builder__arrow">展开</span>
+          </button>
+          <div class="prompt-builder__body">
+            <div class="prompt-builder__desc">性能提升、可读性改善、重构建议</div>
+            <div class="prompt-builder__fields">
+              <label>编程语言<input data-key="language" type="text" placeholder="例如：Python、JavaScript"></label>
+              <label>优化目标<input data-key="target" type="text" placeholder="例如：减少时间复杂度、提升可读性"></label>
+              <label class="prompt-builder__wide">原始代码<textarea data-key="code" rows="6" placeholder="粘贴需要优化的代码"></textarea></label>
+              <label class="chain-check"><input type="checkbox" data-key="chain"> 启用深度思考（思维链）</label>
             </div>
             <div class="prompt-builder__output" aria-live="polite"></div>
             <button class="copy-button" type="button">一键复制</button>
@@ -109,6 +139,4 @@
   <script src="prompt-builder.js"></script>
 </body>
 </html>
-</body>
-
-</html>
+```
