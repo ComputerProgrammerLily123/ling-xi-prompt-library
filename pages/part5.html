@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -10,14 +11,15 @@
   <div class="container">
     <nav class="nav-bar">
       <span class="nav-brand">灵犀指令库</span>
-      <li class="nav-item"><a href="../index.html">首页</a></li>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="../index.html">首页</a></li>
+      </ul>
     </nav>
     <div id="stars"></div><div id="stars2"></div><div id="stars3"></div>
     <div class="glass-reader">
       <div class="reader-header"><h2>代码生成类</h2></div>
       <div class="reader-content">
         
-        <!-- 代码生成 - 升级：拆解+伪代码+错误预警 -->
         <div class="prompt-builder prompt-builder--accordion" data-template="我是一名{role}，需要用{language}实现{need}功能。
 1. 需求拆解：先将我的需求拆成2-5个关键子功能点。
 2. 伪代码逻辑：输出伪代码描述主流程。
@@ -42,7 +44,6 @@
           </div>
         </div>
 
-        <!-- 代码调试 - 保留原有逻辑，微调 -->
         <div class="prompt-builder prompt-builder--accordion" data-template="以下{language}代码报错：{error}。代码：{code}。请先列出{count}种可能出错位置，再给出修正代码，并解释修改原因。">
           <button class="prompt-builder__trigger" type="button" aria-expanded="false">
             <span class="prompt-builder__title">代码调试</span>
@@ -61,7 +62,6 @@
           </div>
         </div>
 
-        <!-- 代码解释 - 优化：逐段说明+复杂度分析 -->
         <div class="prompt-builder prompt-builder--accordion" data-template="请解释以下{language}代码的主要用法，假设读者是{audience}。逐段说明逻辑，并补充时间复杂度、空间复杂度和关键注意事项。代码：{code}">
           <button class="prompt-builder__trigger" type="button" aria-expanded="false">
             <span class="prompt-builder__title">代码解释</span>
@@ -79,7 +79,6 @@
           </div>
         </div>
 
-        <!-- 脚本开发 - 优化：异常预测+运行说明 -->
         <div class="prompt-builder prompt-builder--accordion" data-template="请用{language}开发一个脚本，用于{task}。要求：{requirements}。在生成脚本前，先预测可能出现的异常情况并给出处理方案，生成后说明如何运行。">
           <button class="prompt-builder__trigger" type="button" aria-expanded="false">
             <span class="prompt-builder__title">脚本开发</span>
@@ -101,5 +100,8 @@
     </div>
   </div>
   <script src="prompt-builder.js"></script>
+</body>
+</html>
+```
 </body>
 </html>
