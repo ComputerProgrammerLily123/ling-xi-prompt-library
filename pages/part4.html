@@ -19,7 +19,6 @@
       <div class="reader-header"><h2>逻辑推导类</h2></div>
       <div class="reader-content">
 
-        <!-- 逻辑分析 - 优化：拆解维度、加入因果链、结构化输出 -->
         <div class="prompt-builder prompt-builder--accordion" data-template="请对{target}进行{analysisType}。按以下步骤展开：
 1. 问题界定：用一句话重述分析对象，确保理解准确。
 2. 维度拆解：从{dimension}等维度，分别列出关键因素（每个维度至少2个）。
@@ -44,7 +43,6 @@
           </div>
         </div>
 
-        <!-- 方案规划 - 优化：分阶段、加入预案、风险提示 -->
         <div class="prompt-builder prompt-builder--accordion" data-template="我要在{period}内达成{goal}。请以{format}输出一份执行方案，必须包含：
 1. 阶段拆解：将整体周期拆成至少3个阶段，每阶段目标明确。
 2. 具体行动：每个阶段列出3-5项可执行任务，标注优先级和负责人（如适用）。
@@ -70,7 +68,6 @@
           </div>
         </div>
 
-        <!-- 论证推导 - 优化：强制对立观点、要求补全逻辑、最终形成闭环 -->
         <div class="prompt-builder prompt-builder--accordion" data-template="我的核心观点是：{viewpoint}。支撑理由：{reasons}。
 请你扮演持反对意见的批评家，执行以下步骤：
 1. 找出我论证中至少3个逻辑漏洞（如因果倒置、样本偏差、诉诸情感等）。
@@ -93,7 +90,6 @@
           </div>
         </div>
 
-        <!-- 思路梳理 - 优化：强制提炼主线、给出逻辑框架选项、建议可视化结构 -->
         <div class="prompt-builder prompt-builder--accordion" data-template="我有一批零散想法：{ideas}。请按以下流程帮我梳理：
 1. 归类：将这些想法按主题或逻辑关系分为3-5组，并给每组命名。
 2. 框架建议：推荐一个最适合的逻辑框架（如{framework}），并说明为什么。
