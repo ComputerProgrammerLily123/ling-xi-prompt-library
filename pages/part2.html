@@ -1,107 +1,103 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>灵犀指令库</title>
+  <title>灵犀指令库 · 数据整理</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
   <div class="container">
     <nav class="nav-bar">
-          <span class="nav-brand">灵犀指令库</span>
-          <ul class="nav-menu">
-              <li class="nav-item"><a href="../index.html">首页</a></li>
-          </ul>
+      <span class="nav-brand">灵犀指令库</span>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="../index.html">首页</a></li>
+      </ul>
     </nav>
-    <div id="stars"></div>
-    <div id="stars2"></div>
-    <div id="stars3"></div>
+    <div id="stars"></div><div id="stars2"></div><div id="stars3"></div>
     <div class="glass-reader">
-        <div class="reader-header">
-            <h2>数据整理类</h2>
+      <div class="reader-header"><h2>数据整理类</h2></div>
+      <div class="reader-content">
+        
+        <div class="prompt-builder prompt-builder--accordion" data-template="请对以下数据进行{action}：{data}。具体要求：{detail}，需达到{goal}效果，并保留{keep}。处理前请先检查数据格式一致性，然后逐步操作。">
+          <button class="prompt-builder__trigger" type="button" aria-expanded="false">
+            <span class="prompt-builder__title">数据录入</span>
+            <span class="prompt-builder__arrow">展开</span>
+          </button>
+          <div class="prompt-builder__body">
+            <div class="prompt-builder__desc">表格填充、数据转换、格式统一</div>
+            <div class="prompt-builder__fields">
+              <label>操作类型<input data-key="action" type="text" placeholder="例如：格式统一"></label>
+              <label>具体操作<input data-key="detail" type="text" placeholder="例如：统一日期格式为YYYY-MM-DD"></label>
+              <label>目标效果<input data-key="goal" type="text" placeholder="例如：可直接导入Excel"></label>
+              <label>保留内容<input data-key="keep" type="text" placeholder="例如：姓名、手机号、订单编号"></label>
+              <label class="prompt-builder__wide">数据内容<textarea data-key="data" rows="4" placeholder="粘贴需要处理的数据"></textarea></label>
+              <label class="chain-check"><input type="checkbox" data-key="chain"> 启用深度思考（思维链）</label>
+            </div>
+            <div class="prompt-builder__output" aria-live="polite"></div>
+            <button class="copy-button" type="button">一键复制</button>
+          </div>
         </div>
-        <div class="reader-content">
-            <div class="prompt-builder prompt-builder--accordion" data-template="请对以下数据进行{action}：{data}。具体要求：{detail}。请达到{goal}效果，并保留{keep}。">
-                <button class="prompt-builder__trigger" type="button" aria-expanded="false">
-                    <span class="prompt-builder__title">数据录入</span>
-                    <span class="prompt-builder__arrow">展开</span>
-                </button>
-                <div class="prompt-builder__body">
-                <div class="prompt-builder__desc">适用于表格填充、数据转换、格式统一。</div>
-                <div class="prompt-builder__fields">
-                    <label>操作类型<input data-key="action" type="text" placeholder="例如：格式统一"></label>
-                    <label>具体操作<input data-key="detail" type="text" placeholder="例如：统一日期格式为YYYY-MM-DD"></label>
-                    <label>目标效果<input data-key="goal" type="text" placeholder="例如：可直接导入Excel"></label>
-                    <label>保留内容<input data-key="keep" type="text" placeholder="例如：姓名、手机号、订单编号"></label>
-                    <label class="prompt-builder__wide">数据内容<textarea data-key="data" rows="4" placeholder="在这里粘贴需要处理的数据"></textarea></label>
-                </div>
-                <div class="prompt-builder__output" aria-live="polite"></div>
-                <button class="copy-button" type="button">一键复制</button>
-                </div>
+
+        <div class="prompt-builder prompt-builder--accordion" data-template="请整理以下数据：{data}。按{rule}处理，{dedupe}，输出为{format}。整理过程中请保持数据逻辑，并说明每一步的处理依据。">
+          <button class="prompt-builder__trigger" type="button" aria-expanded="false">
+            <span class="prompt-builder__title">数据整理</span>
+            <span class="prompt-builder__arrow">展开</span>
+          </button>
+          <div class="prompt-builder__body">
+            <div class="prompt-builder__desc">去重、筛选、分类、排序</div>
+            <div class="prompt-builder__fields">
+              <label>整理规则<input data-key="rule" type="text" placeholder="例如：按地区分类后按销售额降序"></label>
+              <label>去重/筛选要求<input data-key="dedupe" type="text" placeholder="例如：删除重复客户记录"></label>
+              <label>目标格式<input data-key="format" type="text" placeholder="例如：Markdown表格"></label>
+              <label class="prompt-builder__wide">数据内容<textarea data-key="data" rows="4" placeholder="粘贴需要整理的数据"></textarea></label>
             </div>
-            <div class="prompt-builder prompt-builder--accordion" data-template="请对以下数据内容进行整理：{data}。请按照{rule}进行处理，{dedupe}，并输出为{format}。">
-                <button class="prompt-builder__trigger" type="button" aria-expanded="false">
-                    <span class="prompt-builder__title">数据整理</span>
-                    <span class="prompt-builder__arrow">展开</span>
-                </button>
-                <div class="prompt-builder__body">
-                <div class="prompt-builder__desc">适用于去重、筛选、分类、排序。</div>
-                <div class="prompt-builder__fields">
-                    <label>整理规则<input data-key="rule" type="text" placeholder="例如：按地区分类后按销售额降序"></label>
-                    <label>去重/筛选要求<input data-key="dedupe" type="text" placeholder="例如：删除重复客户记录"></label>
-                    <label>目标格式<input data-key="format" type="text" placeholder="例如：Markdown表格"></label>
-                    <label class="prompt-builder__wide">数据内容<textarea data-key="data" rows="4" placeholder="在这里粘贴需要整理的数据"></textarea></label>
-                </div>
-                <div class="prompt-builder__output" aria-live="polite"></div>
-                <button class="copy-button" type="button">一键复制</button>
-                </div>
-            </div>
-            <div class="prompt-builder prompt-builder--accordion" data-template="请对以下数据进行分析：{data}。要求按照{dimension}进行分析，并统计{metric}指标，找出主要趋势。请总结{count}条关键结论，并用{format}进行呈现。">
-                <button class="prompt-builder__trigger" type="button" aria-expanded="false">
-                    <span class="prompt-builder__title">数据分析</span>
-                    <span class="prompt-builder__arrow">展开</span>
-                </button>
-                <div class="prompt-builder__body">
-                <div class="prompt-builder__desc">适用于简单统计、趋势分析、对比分析、结论提炼。</div>
-                <div class="prompt-builder__fields">
-                    <label>分析维度<input data-key="dimension" type="text" placeholder="例如：月份、渠道、产品线"></label>
-                    <label>指标类型<input data-key="metric" type="text" placeholder="例如：平均值、增长率、占比"></label>
-                    <label>结论数量<input data-key="count" type="text" placeholder="例如：3"></label>
-                    <label>目标格式<input data-key="format" type="text" placeholder="例如：表格 + 要点列表"></label>
-                    <label class="prompt-builder__wide">数据内容<textarea data-key="data" rows="4" placeholder="在这里粘贴需要分析的数据"></textarea></label>
-                </div>
-                <div class="prompt-builder__output" aria-live="polite"></div>
-                <button class="copy-button" type="button">一键复制</button>
-                </div>
-            </div>
-            <div class="prompt-builder prompt-builder--accordion" data-template="请将以下数据整理为可视化分析：{data}。要求推荐适合的图表类型，如{chartType}，用{format}展示{keyData}。最后用简短文字解释数据含义，并总结主要趋势。">
-                <button class="prompt-builder__trigger" type="button" aria-expanded="false">
-                    <span class="prompt-builder__title">数据可视化</span>
-                    <span class="prompt-builder__arrow">展开</span>
-                </button>
-                <div class="prompt-builder__body">
-                <div class="prompt-builder__desc">适用于表格、图表描述、数据总结。</div>
-                <div class="prompt-builder__fields">
-                    <label>图表类型<input data-key="chartType" type="text" placeholder="例如：柱状图、折线图、饼图"></label>
-                    <label>目标格式<input data-key="format" type="text" placeholder="例如：Markdown表格"></label>
-                    <label>关键数据<input data-key="keyData" type="text" placeholder="例如：销售额TOP5和环比变化"></label>
-                    <label class="prompt-builder__wide">数据内容<textarea data-key="data" rows="4" placeholder="在这里粘贴需要可视化的数据"></textarea></label>
-                </div>
-                <div class="prompt-builder__output" aria-live="polite"></div>
-                <button class="copy-button" type="button">一键复制</button>
-                </div>
-            </div>
+            <div class="prompt-builder__output" aria-live="polite"></div>
+            <button class="copy-button" type="button">一键复制</button>
+          </div>
         </div>
-        <div class="reader-footer">
-            ✦ 磨砂玻璃视界 · 可承载数万字内容 ✦ 滚动流畅 · 沉浸阅读
+
+        <div class="prompt-builder prompt-builder--accordion" data-template="请对以下数据从{dimension}维度进行分析，统计{metric}指标，找出主要趋势。请总结{count}条关键结论，用{format}呈现。分析时请先说明数据来源和局限性。">
+          <button class="prompt-builder__trigger" type="button" aria-expanded="false">
+            <span class="prompt-builder__title">数据分析</span>
+            <span class="prompt-builder__arrow">展开</span>
+          </button>
+          <div class="prompt-builder__body">
+            <div class="prompt-builder__desc">简单统计、趋势分析、对比分析</div>
+            <div class="prompt-builder__fields">
+              <label>分析维度<input data-key="dimension" type="text" placeholder="例如：月份、渠道、产品线"></label>
+              <label>指标类型<input data-key="metric" type="text" placeholder="例如：平均值、增长率、占比"></label>
+              <label>结论数量<input data-key="count" type="text" placeholder="例如：3"></label>
+              <label>目标格式<input data-key="format" type="text" placeholder="例如：表格 + 要点列表"></label>
+              <label class="prompt-builder__wide">数据内容<textarea data-key="data" rows="4" placeholder="粘贴需要分析的数据"></textarea></label>
+            </div>
+            <div class="prompt-builder__output" aria-live="polite"></div>
+            <button class="copy-button" type="button">一键复制</button>
+          </div>
         </div>
+
+        <div class="prompt-builder prompt-builder--accordion" data-template="请将以下数据整理为可视化分析：{data}。推荐适合的图表类型（如{chartType}），用{format}展示{keyData}。最后用简短文字解释数据含义，并总结主要趋势。">
+          <button class="prompt-builder__trigger" type="button" aria-expanded="false">
+            <span class="prompt-builder__title">数据可视化</span>
+            <span class="prompt-builder__arrow">展开</span>
+          </button>
+          <div class="prompt-builder__body">
+            <div class="prompt-builder__desc">表格、图表描述、数据总结</div>
+            <div class="prompt-builder__fields">
+              <label>图表类型<input data-key="chartType" type="text" placeholder="例如：柱状图、折线图、饼图"></label>
+              <label>目标格式<input data-key="format" type="text" placeholder="例如：Markdown表格"></label>
+              <label>关键数据<input data-key="keyData" type="text" placeholder="例如：销售额TOP5和环比变化"></label>
+              <label class="prompt-builder__wide">数据内容<textarea data-key="data" rows="4" placeholder="粘贴需要可视化的数据"></textarea></label>
+            </div>
+            <div class="prompt-builder__output" aria-live="polite"></div>
+            <button class="copy-button" type="button">一键复制</button>
+          </div>
+        </div>
+      </div>
+      <div class="reader-footer">✦ 磨砂玻璃视界 · 可承载数万字内容 ✦ 滚动流畅 · 沉浸阅读</div>
     </div>
   </div>
   <script src="prompt-builder.js"></script>
-
 </body>
-
 </html>

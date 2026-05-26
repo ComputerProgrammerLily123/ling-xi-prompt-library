@@ -1,106 +1,109 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>灵犀指令库</title>
+  <title>灵犀指令库 · 问题解答</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
   <div class="container">
     <nav class="nav-bar">
-          <span class="nav-brand">灵犀指令库</span>
-          <ul class="nav-menu">
-              <li class="nav-item"><a href="../index.html">首页</a></li>
-          </ul>
+      <span class="nav-brand">灵犀指令库</span>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="../index.html">首页</a></li>
+      </ul>
     </nav>
-    <div id="stars"></div>
-    <div id="stars2"></div>
-    <div id="stars3"></div>
+    <div id="stars"></div><div id="stars2"></div><div id="stars3"></div>
     <div class="glass-reader">
-        <div class="reader-header">
-            <h2>问题解答类</h2>
+      <div class="reader-header"><h2>问题解答类</h2></div>
+      <div class="reader-content">
+        
+        <div class="prompt-builder prompt-builder--accordion" data-template="你是一名{field}领域专家。请用{audience}能听懂的话，解释{concept}。重点说明核心机制，运用{method}辅助理解，最后总结3个最关键的知识点。">
+          <button class="prompt-builder__trigger" type="button" aria-expanded="false">
+            <span class="prompt-builder__title">知识查询</span>
+            <span class="prompt-builder__arrow">展开</span>
+          </button>
+          <div class="prompt-builder__body">
+            <div class="prompt-builder__desc">概念解释、原理说明、知识点梳理</div>
+            <div class="prompt-builder__fields">
+              <label>专业领域<input data-key="field" type="text" placeholder="例如：量子物理学"></label>
+              <label>目标受众<input data-key="audience" type="text" placeholder="例如：10岁小孩"></label>
+              <label>核心概念<input data-key="concept" type="text" placeholder="例如：量子纠缠"></label>
+              <label>辅助方式<input data-key="method" type="text" placeholder="例如：生活类比和简单例子"></label>
+            </div>
+            <div class="prompt-builder__output" aria-live="polite"></div>
+            <button class="copy-button" type="button">一键复制</button>
+          </div>
         </div>
-        <div class="reader-content">
-            <div class="prompt-builder prompt-builder--accordion" data-template="你现在是一名{field}领域专家，请用{audience}能听懂的话，解释{concept}。请重点说明其核心机制，并运用{method}辅助理解。最后请总结出最关键的知识点。">
-                <button class="prompt-builder__trigger" type="button" aria-expanded="false">
-                    <span class="prompt-builder__title">知识查询</span>
-                    <span class="prompt-builder__arrow">展开</span>
-                </button>
-                <div class="prompt-builder__body">
-                <div class="prompt-builder__desc">适用于概念解释、原理说明、知识点梳理。</div>
-                <div class="prompt-builder__fields">
-                    <label>专业领域<input data-key="field" type="text" placeholder="例如：量子物理学"></label>
-                    <label>目标受众<input data-key="audience" type="text" placeholder="例如：10岁小孩、非专业人士"></label>
-                    <label>核心概念<input data-key="concept" type="text" placeholder="例如：量子纠缠"></label>
-                    <label>辅助方式<input data-key="method" type="text" placeholder="例如：生活类比和简单例子"></label>
-                </div>
-                <div class="prompt-builder__output" aria-live="polite"></div>
-                <button class="copy-button" type="button">一键复制</button>
-                </div>
+
+        <div class="prompt-builder prompt-builder--accordion" data-template="【背景】{scene}场景下，我遇到了以下问题：{problem}。
+请以{standard}领域资深顾问身份，按以下步骤解决：
+1. 问题重述与诊断：重述我的问题，确保理解，指出核心卡点。
+2. 原因分析：从多角度分析可能的原因（至少{count}个），按可能性排序。
+3. 解决方案：针对每个原因给出可操作步骤，推荐一个主方案，说明优点和风险。
+4. 行动清单：输出简洁的下一步行动，我照做就能开始。">
+          <button class="prompt-builder__trigger" type="button" aria-expanded="false">
+            <span class="prompt-builder__title">疑问解答</span>
+            <span class="prompt-builder__arrow">展开</span>
+          </button>
+          <div class="prompt-builder__body">
+            <div class="prompt-builder__desc">日常疑问、专业问题、实操问题</div>
+            <div class="prompt-builder__fields">
+              <label>具体场景<input data-key="scene" type="text" placeholder="例如：团队协作沟通"></label>
+              <label>参考标准<input data-key="standard" type="text" placeholder="例如：项目管理最佳实践"></label>
+              <label>方案数量<input data-key="count" type="text" placeholder="例如：3"></label>
+              <label class="prompt-builder__wide">问题细节（越详细越好）<textarea data-key="problem" rows="5" placeholder="请详细描述你遇到的问题，包括背景、尝试过的方法等"></textarea></label>
+              <label class="chain-check"><input type="checkbox" data-key="chain"> 启用深度思考（思维链）</label>
             </div>
-            <div class="prompt-builder prompt-builder--accordion" data-template="我遇到了一个关于{scene}的问题：{problem}。请基于{standard}，给出{count}种可能的解决方案。要求步骤必须具备可操作性，并列出操作时的重要注意事项。">
-                <button class="prompt-builder__trigger" type="button" aria-expanded="false">
-                    <span class="prompt-builder__title">疑问解答</span>
-                    <span class="prompt-builder__arrow">展开</span>
-                </button>
-                <div class="prompt-builder__body">
-                <div class="prompt-builder__desc">适用于日常疑问、专业问题、实操问题、逻辑疑问。</div>
-                <div class="prompt-builder__fields">
-                    <label>具体场景<input data-key="scene" type="text" placeholder="例如：团队协作沟通"></label>
-                    <label>参考标准<input data-key="standard" type="text" placeholder="例如：项目管理最佳实践"></label>
-                    <label>方案数量<input data-key="count" type="text" placeholder="例如：3"></label>
-                    <label class="prompt-builder__wide">问题细节<textarea data-key="problem" rows="4" placeholder="描述你遇到的问题"></textarea></label>
-                </div>
-                <div class="prompt-builder__output" aria-live="polite"></div>
-                <button class="copy-button" type="button">一键复制</button>
-                </div>
-            </div>
-            <div class="prompt-builder prompt-builder--accordion" data-template="请帮我汇总关于{topic}的信息。你需要阅读以下资料：{material}。请按以下结构输出：{structure}，字数控制在{length}以内。">
-                <button class="prompt-builder__trigger" type="button" aria-expanded="false">
-                    <span class="prompt-builder__title">信息检索</span>
-                    <span class="prompt-builder__arrow">展开</span>
-                </button>
-                <div class="prompt-builder__body">
-                <div class="prompt-builder__desc">适用于资料汇总、文献摘要、热点梳理。</div>
-                <div class="prompt-builder__fields">
-                    <label>主题/热点<input data-key="topic" type="text" placeholder="例如：AI搜索产品的发展趋势"></label>
-                    <label>输出结构<input data-key="structure" type="text" placeholder="例如：核心观点、争议点、行业影响"></label>
-                    <label>字数要求<input data-key="length" type="text" placeholder="例如：500字"></label>
-                    <label class="prompt-builder__wide">资料/关键词<textarea data-key="material" rows="4" placeholder="粘贴资料内容，或输入要检索的关键词"></textarea></label>
-                </div>
-                <div class="prompt-builder__output" aria-live="polite"></div>
-                <button class="copy-button" type="button">一键复制</button>
-                </div>
-            </div>
-            <div class="prompt-builder prompt-builder--accordion" data-template="我目前面临{background}。我的核心需求是{need}，预算/限制条件是{limit}。当前方案或备选项是{options}。请根据以上条件，提供{adviceType}，并说明理由、风险和下一步行动。">
-                <button class="prompt-builder__trigger" type="button" aria-expanded="false">
-                    <span class="prompt-builder__title">建议提供</span>
-                    <span class="prompt-builder__arrow">展开</span>
-                </button>
-                <div class="prompt-builder__body">
-                <div class="prompt-builder__desc">适用于方案建议、选择建议、优化建议。</div>
-                <div class="prompt-builder__fields">
-                    <label>决策背景<input data-key="background" type="text" placeholder="例如：选购相机、职业选择"></label>
-                    <label>核心需求<input data-key="need" type="text" placeholder="例如：预算有限但需要便携"></label>
-                    <label>限制条件<input data-key="limit" type="text" placeholder="例如：预算5000元以内"></label>
-                    <label>建议类型<input data-key="adviceType" type="text" placeholder="例如：倾向性选择建议"></label>
-                    <label class="prompt-builder__wide">当前方案/备选项<textarea data-key="options" rows="3" placeholder="例如：方案A、方案B，或目前已有方案"></textarea></label>
-                </div>
-                <div class="prompt-builder__output" aria-live="polite"></div>
-                <button class="copy-button" type="button">一键复制</button>
-                </div>
-            </div>
+            <div class="prompt-builder__output" aria-live="polite"></div>
+            <button class="copy-button" type="button">一键复制</button>
+          </div>
         </div>
-        <div class="reader-footer">
-            ✦ 磨砂玻璃视界 · 可承载数万字内容 ✦ 滚动流畅 · 沉浸阅读
+
+        <div class="prompt-builder prompt-builder--accordion" data-template="请汇总关于{topic}的信息。阅读以下资料：{material}。按{structure}结构输出，字数{length}以内。先提炼资料核心，再组织回答。">
+          <button class="prompt-builder__trigger" type="button" aria-expanded="false">
+            <span class="prompt-builder__title">信息检索</span>
+            <span class="prompt-builder__arrow">展开</span>
+          </button>
+          <div class="prompt-builder__body">
+            <div class="prompt-builder__desc">资料汇总、文献摘要、热点梳理</div>
+            <div class="prompt-builder__fields">
+              <label>主题/热点<input data-key="topic" type="text" placeholder="例如：AI搜索发展趋势"></label>
+              <label>输出结构<input data-key="structure" type="text" placeholder="例如：核心观点、争议点、影响"></label>
+              <label>字数要求<input data-key="length" type="text" placeholder="例如：500字"></label>
+              <label class="prompt-builder__wide">资料/关键词<textarea data-key="material" rows="4" placeholder="粘贴资料或输入关键词"></textarea></label>
+            </div>
+            <div class="prompt-builder__output" aria-live="polite"></div>
+            <button class="copy-button" type="button">一键复制</button>
+          </div>
         </div>
+
+        <div class="prompt-builder prompt-builder--accordion" data-template="我面临{background}的决策，核心需求是{need}，限制条件是{limit}。当前选项：{options}。请提供{adviceType}，按以下步骤：
+1. 分析每个选项的优缺点。
+2. 给出倾向性建议，说明理由。
+3. 提示可能的风险和下一步行动。">
+          <button class="prompt-builder__trigger" type="button" aria-expanded="false">
+            <span class="prompt-builder__title">建议提供</span>
+            <span class="prompt-builder__arrow">展开</span>
+          </button>
+          <div class="prompt-builder__body">
+            <div class="prompt-builder__desc">方案建议、选择建议、优化建议</div>
+            <div class="prompt-builder__fields">
+              <label>决策背景<input data-key="background" type="text" placeholder="例如：选购相机、职业选择"></label>
+              <label>核心需求<input data-key="need" type="text" placeholder="例如：预算有限但需要便携"></label>
+              <label>限制条件<input data-key="limit" type="text" placeholder="例如：预算5000元以内"></label>
+              <label>建议类型<input data-key="adviceType" type="text" placeholder="例如：倾向性选择建议"></label>
+              <label class="prompt-builder__wide">当前方案/备选项<textarea data-key="options" rows="3" placeholder="例如：方案A、方案B，或目前已有方案"></textarea></label>
+            </div>
+            <div class="prompt-builder__output" aria-live="polite"></div>
+            <button class="copy-button" type="button">一键复制</button>
+          </div>
+        </div>
+      </div>
+      <div class="reader-footer">✦ 磨砂玻璃视界 · 可承载数万字内容 ✦ 滚动流畅 · 沉浸阅读</div>
     </div>
   </div>
   <script src="prompt-builder.js"></script>
-
 </body>
-
 </html>
